@@ -1,0 +1,2 @@
+import { useQuery } from '@tanstack/react-query'; import { getCurrentUser } from '../services/api';
+export function useAuth() { return useQuery({ queryKey: ['auth'], queryFn: getCurrentUser, retry: false }); }

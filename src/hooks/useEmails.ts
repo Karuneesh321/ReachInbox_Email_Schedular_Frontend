@@ -1,0 +1,2 @@
+import { useQuery } from '@tanstack/react-query'; import { getScheduledEmails, getSentEmails } from '../services/api';
+export function useEmails() { const scheduled = useQuery({ queryKey: ['emails', 'scheduled'], queryFn: getScheduledEmails, refetchInterval: 5000 }); const sent = useQuery({ queryKey: ['emails', 'sent'], queryFn: getSentEmails, refetchInterval: 5000 }); return { scheduled, sent }; }

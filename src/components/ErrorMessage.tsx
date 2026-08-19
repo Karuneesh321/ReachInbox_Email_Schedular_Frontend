@@ -1,0 +1,1 @@
+export function ErrorMessage() { return <div className="state error-state"><strong>Could not load emails</strong><span>Check the backend connection and try again.</span></div>; }

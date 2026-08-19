@@ -1,0 +1,2 @@
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
+export function Button({ children, variant = 'primary', ...props }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'primary' | 'quiet'; children: ReactNode }) { return <button type="button" className={`button button-${variant}`} {...props}>{children}</button>; }

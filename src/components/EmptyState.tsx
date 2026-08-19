@@ -1,0 +1,1 @@
+export function EmptyState({ label }: { label: string }) { return <div className="state"><strong>{label}</strong><span>Your email activity will appear here.</span></div>; }

@@ -1,0 +1,1 @@
+export function LoadingState() { return <div className="state"><span className="spinner" /> Loading emails...</div>; }
