@@ -1,5 +1,7 @@
 import axios from 'axios'; import type { User } from '../types/auth'; import type { Email, ScheduleEmailRequest, ScheduleEmailResponse } from '../types/email';
-const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api', withCredentials: true });
+const configuredApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+export const apiBaseUrl = `${configuredApiUrl.replace(/\/$/, '')}${configuredApiUrl.replace(/\/$/, '').endsWith('/api') ? '' : '/api'}`;
+const api = axios.create({ baseURL: apiBaseUrl, withCredentials: true });
 export async function getCurrentUser(): Promise<User> { return (await api.get<{ user: User }>('/auth/me')).data.user; }
 export async function logout(): Promise<void> { await api.post('/auth/logout'); }
 export async function scheduleEmails(input: ScheduleEmailRequest): Promise<ScheduleEmailResponse> { return (await api.post<ScheduleEmailResponse>('/emails/schedule', input)).data; }
